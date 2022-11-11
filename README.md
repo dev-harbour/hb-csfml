@@ -21,7 +21,7 @@ Installing hb-sfml requires sfml including its headers. For more info see [getti
    ./short_example.prg
    ```
 
-```
+``` harbour
 #include "hbcsfml.ch"
 
 PROCEDURE Main()
