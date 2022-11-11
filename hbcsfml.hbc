@@ -1,0 +1,16 @@
+description=hb-csfml bindings for Harbour
+
+incpaths=include
+headers=include/${hb_name}.ch
+
+libs=${_HB_DYNPREF}${hb_name}${_HB_DYNSUFF}
+
+libs=csfml-audio
+libs=csfml-graphics
+libs=csfml-network
+libs=csfml-system
+libs=csfml-window
+
+libpaths=lib/${hb_plat}/${hb_comp}
+{darwin}libpaths=/usr/local/lib
+{linux}libpaths=/usr/local/lib

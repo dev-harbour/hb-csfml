@@ -1,27 +1,7 @@
-# hb-sfml
+/*
+ *
+ */
 
-Harbour module implementing bindings to [SFML 2.5.1](https://www.sfml-dev.org/index.php).
-
-### Getting Started
-
-Installing hb-sfml requires sfml including its headers. For more info see [getting started](examples/README.md).
-
-## Building
-
-- Build static library:
-
-   ```
-   hbmk2 hbsfml.hbp
-   ```
-
-- Build and run sample and test code:
-
-   ```
-   hbmk2 short_example.prg
-   ./short_example.prg
-   ```
-
-```
 #include "hbcsfml.ch"
 
 PROCEDURE Main()
@@ -36,11 +16,13 @@ PROCEDURE Main()
    LOCAL pMusic
    LOCAL nEventType
 
+   /* Create the main window */
    pWindow := sfRenderWindow_create( aMode, "Hello! Harbour", sfResize + sfClose, aContextSettings )
    IF pWindow == NIL
       RETURN
    ENDIF
 
+   /* Load a sprite to display */
    pTexture := sfTexture_createFromFile( "../../../docs/assets/img/harbour_sfml.png", { 0, 0, 0, 0 } )
    IF pTexture == NIL
       RETURN
@@ -49,6 +31,7 @@ PROCEDURE Main()
    pSprite := sfSprite_create()
    sfSprite_setTexture( pSprite, pTexture, .T. )
 
+   /* Create a graphical text to display */
    pFont := sfFont_createFromFile( "../../../docs/assets/fonts/Merienda/Merienda-Regular.ttf" )
    IF pFont == NIL
       RETURN
@@ -59,30 +42,43 @@ PROCEDURE Main()
    sfText_setFont( pText, pFont )
    sfText_setCharacterSize( pText, 48 )
 
+   /* Load a music to play */
    pMusic := sfMusic_createFromFile( "../../../docs/assets/melody/Jieese.ogg" )
    IF pMusic == NIL
       RETURN
    ENDIF
 
+   /* Play the music */
    sfMusic_play( pMusic )
 
+   /* Start the game loop */
    DO WHILE sfRenderWindow_isOpen( pWindow )
 
+      /* Process events */
       DO WHILE sfRenderWindow_pollEvent( pWindow, @nEventType )
 
+         /* Close window : exit */
          IF nEventType == sfEvtClosed
             sfRenderWindow_close( pWindow )
          ENDIF
 
       ENDDO
 
+      /* Clear the screen */
       sfRenderWindow_clear( pWindow, { 235, 235, 255, 0 } )
+
+      /* Draw the sprite */
       sfRenderWindow_drawSprite( pWindow, pSprite )
+
+      /* Draw the text */
       sfRenderWindow_drawText( pWindow, pText )
+
+      /* Update the window */
       sfRenderWindow_display( pWindow )
 
    ENDDO
 
+   /* Cleanup resources */
    sfMusic_destroy( pMusic )
    sfText_destroy( pText )
    sfFont_destroy( pFont )
@@ -91,6 +87,3 @@ PROCEDURE Main()
    sfRenderWindow_destroy( pWindow )
 
    RETURN
-```
-
-[License.](LICENSE)

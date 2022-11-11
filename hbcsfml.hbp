@@ -1,0 +1,34 @@
+# Project build file
+
+-hblib
+-inc
+
+-olib/${hb_plat}/${hb_comp}/${hb_name}
+
+-w3 -es2 -gc3
+
+-depkeyhead=csfml:Audio.h
+-depkeyhead=csfml:Graphics.h
+-depkeyhead=csfml:Network.h
+-depkeyhead=csfml:System.h
+-depkeyhead=csfml:Window.h
+-depcontrol=csfml:${HB_WITH_CSFML}
+-depincpath=csfml:/usr/include/SFML
+-depincpath=csfml:/usr/local/include/SFML
+-depincpath=csfml:/opt/local/include/SFML
+-depincpath=csfml:/usr/local/opt/include/SFML
+
+-iinclude
+
+-hbx=include/${hb_name}.hbx
+
+src/*.c
+src/Audio/*.c
+src/Graphics/*.c
+src/Network/*.c
+src/System/*.c
+src/Window/*.c
+src/*.prg
+
+$hb_pkg_dynlib.hbm
+$hb_pkg_install.hbm
