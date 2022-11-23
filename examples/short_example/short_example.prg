@@ -23,7 +23,7 @@ PROCEDURE Main()
    ENDIF
 
    /* Load a sprite to display */
-   pTexture := sfTexture_createFromFile( "../../../docs/assets/img/harbour_sfml.png", { 0, 0, 0, 0 } )
+   pTexture := sfTexture_createFromFile( "../../docs/assets/img/harbour_sfml.png", { 0, 0, 0, 0 } )
    IF pTexture == NIL
       RETURN
    ENDIF
@@ -32,7 +32,7 @@ PROCEDURE Main()
    sfSprite_setTexture( pSprite, pTexture, .T. )
 
    /* Create a graphical text to display */
-   pFont := sfFont_createFromFile( "../../../docs/assets/fonts/Merienda/Merienda-Regular.ttf" )
+   pFont := sfFont_createFromFile( "../../docs/assets/fonts/Merienda/Merienda-Regular.ttf" )
    IF pFont == NIL
       RETURN
    ENDIF
@@ -43,7 +43,7 @@ PROCEDURE Main()
    sfText_setCharacterSize( pText, 48 )
 
    /* Load a music to play */
-   pMusic := sfMusic_createFromFile( "../../../docs/assets/melody/Jieese.ogg" )
+   pMusic := sfMusic_createFromFile( "../../docs/assets/melody/Jieese.ogg" )
    IF pMusic == NIL
       RETURN
    ENDIF
