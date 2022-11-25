@@ -43,7 +43,7 @@ PROCEDURE Main()
    sfText_setCharacterSize( pText, 48 )
 
    /* Load a music to play */
-   pMusic := sfMusic_createFromFile( "../../docs/assets/melody/Jieese.ogg" )
+   pMusic := sfMusic_createFromFile( "../../docs/assets/melody/Another-Love.ogg" )
    IF pMusic == NIL
       RETURN
    ENDIF
